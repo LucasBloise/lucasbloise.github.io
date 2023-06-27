@@ -8,6 +8,7 @@ setInterval(function () {
 }, 3000); // Cambia la imagen cada 3 segundos (ajusta el valor según tus necesidades)
 
 
+
 function changeSlide(n) {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + n + slides.length) % slides.length;
@@ -15,6 +16,9 @@ function changeSlide(n) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    $('.carousel').carousel({
+        interval: 2000
+      })
     let prevButton = document.querySelector('.prev');
     let nextButton = document.querySelector('.next');
 
