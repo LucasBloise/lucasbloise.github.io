@@ -1,0 +1,90 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.super-mascotas-icon {
+    width: 15.4375rem;
+    height: 6.4375rem;
+    margin-left: 3.31rem;
+    margin-bottom: 0.95rem;
+    margin-top: 0.31rem;
+}
+
+header {
+    background-color: #FFE1E1;
+    height: 7rem;
+    flex-direction: row;
+    display: flex
+}
+
+.navigation-items-container {
+    width: 100%;
+    height: 100%;
+    margin-left: 6rem;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+}
+
+.navigation-item {
+    color: #000;
+    font-size: 1.5rem;
+    font-family: Inter;
+    font-weight: 700;
+}
+
+.cart-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 5rem;
+}
+
+.carousel {
+    margin-top: 2rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    height: 25%;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide.active {
+    display: block;
+}
+
+
+.prev,
+.next {
+    margin-left: 25%;
+    margin-right: 25%;
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+    top: 13.75rem;
+}
+
+.next {
+    right: 10px;
+    top: 13.75rem;
+}

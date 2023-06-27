@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mi página web</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <img class="super-mascotas-icon" src="assets/super_mascotas_icon.png" alt="Logo de Super Mascotas">
+        <div class="navigation-items-container">
+            <nav class="navigation-item">Inicio</nav>
+            <nav class="navigation-item">Sucursales</nav>
+            <nav class="navigation-item">Sobre Nosotros</nav>
+        </div>
+        <button class="cart-button">
+            <img class="cart-icon" src="assets/cart-icon.png" alt="Cart Icon">
+        </button>
+    </header>
+
+    <div class="carousel">
+        <div class="slide">
+            <img src="assets/promo_1.png" alt="Imagen 1">
+        </div>
+        <div class="slide">
+            <img src="assets/promo_2.png" alt="Imagen 2">
+        </div>
+        <div class="slide">
+            <img src="assets/promo_3.png" alt="Imagen 3">
+        </div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
