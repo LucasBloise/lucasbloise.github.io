@@ -222,8 +222,3 @@ footer {
 
 }
 
-@media (max-width: 767px) {
-    .navbar-nav {
-        flex-direction: column-reverse;
-    }
-}
