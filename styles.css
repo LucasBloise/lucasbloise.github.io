@@ -190,6 +190,11 @@ footer {
     font: 400 1.25rem "Roboto", sans-serif;
 }
 
+.form-floating {
+    margin-top: 2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
 
 
@@ -221,4 +226,3 @@ footer {
     }
 
 }
-
