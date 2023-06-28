@@ -1,3 +1,8 @@
+html {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -44,8 +49,6 @@ body {
 
 .carousel-container {
     margin-top: 2rem;
-    margin-left: 10%;
-    margin-right: 10%;
 }
 
 .cart-search-container {
@@ -59,6 +62,164 @@ body {
 
 .navbar-nav {
     flex-direction: default;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.product-card {
+    background: #d9d9d9;
+    width: 20rem;
+    height: 23rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.product-card-add-to-cart-container {
+    background: #f5b32f;
+    border-radius: 20px;
+    width: 279px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.product-card-add-to-cart-button {
+    color: #ffffff;
+    text-align: left;
+    font: 700 26px "Inter", sans-serif;
+
+}
+
+.product-card-name {
+    color: #000000;
+    text-align: center;
+    font: 700 26px "Inter", sans-serif;
+    margin-bottom: 1rem;
+}
+
+.product-card-price {
+    color: #000000;
+    text-align: left;
+    font: 700 26px "Inter", sans-serif;
+    margin-bottom: 0.70rem;
+}
+
+.grid-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+
+.product-card-image {
+    width: 12.5rem;
+    height: 12.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+
+footer {
+    margin: 0;
+    padding: 0;
+}
+
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 123px;
+    width: 100%;
+    background: #ffe1e1;
+}
+
+.footer-row-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-left-bar {
+    background: #f0af2e;
+    width: 28rem;
+    height: 10px;
+
+
+    overflow: hidden;
+}
+
+.footer-right-bar {
+    background: #f0af2e;
+    width: 28rem;
+    height: 10px;
+
+
+    overflow: hidden;
+}
+
+.footer-icons-row {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-label {
+    color: #000000;
+    text-align: center;
+    font: 400 1.25rem "Roboto", sans-serif;
+}
+
+
+
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-left-bar {
+        width: 30rem;
+    }
+
+    .footer-right-bar {
+        width: 30rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer-left-bar {
+        width: 8rem;
+    }
+
+    .footer-right-bar {
+        width: 8rem;
+    }
+
 }
 
 @media (max-width: 767px) {
