@@ -198,10 +198,7 @@ footer {
 
 
 
-@media (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
+@media (min-width: 1200px) {
 
     .footer-left-bar {
         width: 30rem;
@@ -209,6 +206,21 @@ footer {
 
     .footer-right-bar {
         width: 30rem;
+    }
+}
+
+
+@media (max-width: 1199px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-left-bar {
+        width: 20rem;
+    }
+
+    .footer-right-bar {
+        width: 20rem;
     }
 }
 
