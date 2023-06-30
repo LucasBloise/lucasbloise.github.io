@@ -76,6 +76,8 @@ body {
     font-weight: 600;
 }
 
+
+
 @media (max-width: 500px) {
     .store-list-container {
         margin-left: 0rem;
@@ -88,7 +90,7 @@ body {
     }
 
     .section-title-line {
-        width: 10%;
+        width: 6%;
     }
 
 }
