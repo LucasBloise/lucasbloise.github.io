@@ -17,7 +17,7 @@ function changeSlide(n) {
 
 document.addEventListener('DOMContentLoaded', function () {
     $('.carousel').carousel({
-        interval: 2000
+        interval: 3000
       })
     let prevButton = document.querySelector('.prev');
     let nextButton = document.querySelector('.next');

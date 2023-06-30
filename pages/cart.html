@@ -9,7 +9,7 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <link rel="stylesheet" type="text/css" href="../styles.css">
-<link rel="stylesheet" type="text/css" href="../styles/sobre_nosotros.css">
+<link rel="stylesheet" type="text/css" href="../styles/cart.css">
 
 <body>
     <header>
@@ -37,9 +37,9 @@
                         </li>
                         <li class="cart-search-container-li d-flex order-lg-last">
                             <div class="cart-search-container">
-                                <a class="cart-button" href="/pages/cart.html">
+                                <button class="cart-button">
                                     <img class="cart-icon" src="../assets/cart-icon.png" alt="Cart Icon">
-                                </a>
+                                </button>
                             </div>
                         </li>
                     </ul>
@@ -49,37 +49,49 @@
 
     </header>
 
-    <section>
-        <div class="store-list-container">
-            <div class="section-title-container">
-                <div class="section-title-line"></div>
-                <div class="section-title-text">Sobre Nosotros</div>
-                <div class="section-title-line"></div>
+    <div class="content-container">
+        <div class="section-title-container">
+            <div class="section-title-line"></div>
+            <div class="section-title-text">Finalizar Compra</div>
+            <div class="section-title-line"></div>
+        </div>
+        <div class="form-and-detail-container">
+            <form class="col-md-6 payment-form">
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="floatingInputValue" placeholder="Nombre">
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="floatingInputValue" placeholder="Telefono">
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="floatingInputValue" placeholder="Email">
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="floatingInputValue" placeholder="Direccion">
+                </div>
+            </form>
+            <div class="order-container">
+                <div class="products-container">
+                    <div class="product">
+                        <div class="item">2X Alimento de Perro</div>
+                        <div class="price">$ 10500</div>
+                    </div>
+                    <div class="product">
+                        <div class="item">1 Juguete de Gato</div>
+                        <div class="price">$ 10500</div>
+                    </div>
+                </div>
+
+
+                <div class="price-total">Total $ 21000</div>
             </div>
-            <div class="about-us-container">
-                <span class="title">¡Bienvenido a Super Mascotas!</span><br />
-                <span class="text">En </span><span class="highlight">Super Mascotas</span><span class="text">, nos
-                    apasiona brindar a tus compañeros peludos todo lo que necesitan para vivir una vida feliz y
-                    saludable. Nuestro objetivo es ofrecerte una amplia gama de productos de alta calidad, desde
-                    alimentos nutritivos hasta juguetes divertidos y accesorios elegantes.</span><br /><br />
-                <span class="text">Nos enorgullece trabajar con marcas de renombre y productos que cumplen con los
-                    estándares más altos de calidad. Nuestro equipo de </span><span class="highlight">amantes de los
-                    animales</span><span class="text"> está aquí para brindarte asesoramiento experto y ayudarte a
-                    encontrar los productos adecuados para tus amigos peludos.</span><br /><br />
-                <span class="text">En </span><span class="highlight">Super Mascotas</span><span class="text">, también
-                    nos comprometemos a brindarte un servicio al cliente excepcional. </span><span
-                    class="highlight">Queremos que tu experiencia de compra sea fácil y satisfactoria</span><span
-                    class="text">. Si tienes alguna pregunta o necesitas ayuda, nuestro equipo de atención al cliente
-                    está listo para asistirte.</span><br /><br />
-                <span class="text">Explora nuestro catálogo en línea y descubre una gran variedad de productos para
-                    satisfacer todas las necesidades de tus mascotas. Gracias por elegir Super Mascotas como tu destino
-                    confiable para productos de mascotas. </span><span class="title">¡Esperamos servirte pronto a ti y a
-                    tus mascotas!</span>
-            </div>
+
 
         </div>
-
-    </section>
+        <div class="finalizar-compra product-card-add-to-cart-button product-card-add-to-cart-container">
+            Finalizar Compra
+        </div>
+    </div>
 
 
     <footer>

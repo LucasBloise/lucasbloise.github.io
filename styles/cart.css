@@ -1,0 +1,156 @@
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+
+}
+
+.section-title-container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title-text {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: black;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word
+}
+
+.section-title-line {
+    width: 30%;
+    height: 10px;
+    background: #F0AF2E
+}
+
+.about-us-container {
+    margin-top: 2rem;
+}
+
+.title {
+
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.form-and-detail-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.order-container {
+    width: 40%;
+    background: #FFE1E1;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.products-container {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.price-total {
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.product-card-add-to-cart-container {
+    background: #f5b32f;
+    border-radius: 20px;
+    width: 279px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.finalizar-compra {
+    margin-top: 3rem;
+    align-self: center;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+
+    /* Estilos para pantallas con un ancho máximo de 600px */
+    .content-container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .section-title-line {
+        width: 10%;
+    }
+
+    .section-title-text {
+        font-size: 26px;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+
+    /* Estilos para pantallas con un ancho mínimo de 601px y un ancho máximo de 1024px */
+    .content-container {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .section-title-line {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+
+    /* Estilos para pantallas con un ancho mínimo de 1025px */
+    .content-container {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+
+    .section-title-line {
+        width: 30%;
+    }
+}
