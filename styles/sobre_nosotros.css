@@ -87,12 +87,25 @@ body {
     .section-title-text {
         margin-left: 1rem;
         margin-right: 1rem;
+        font-size: 26px;
     }
 
     .section-title-line {
-        width: 6%;
+        width: 8%;
     }
 
+    .title {
+        color: black;
+        font-size: 24px;
+        font-family: Inter;
+        font-weight: 800;
+        word-wrap: break-word;
+    }
+
+    .highlight {
+        font-size: 24px;
+        font-weight: 600;
+    }
 }
 
 @media (min-width: 501px) {
@@ -101,8 +114,9 @@ body {
         margin-right: 2rem;
     }
 
+
     .section-title-line {
-        width: 10%;
+        width: 15%;
     }
 }
 
