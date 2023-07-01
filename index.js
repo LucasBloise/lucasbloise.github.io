@@ -104,6 +104,8 @@ const fakeProducts = [
           cartContent.find((e) => e.name === product.name).currentAmountInCart++;
         }
         cartCountText.textContent = calculateProductsInCart();
+        sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
+     
       };
 
     addToCartButton.classList.add('product-card-add-to-cart-button');
