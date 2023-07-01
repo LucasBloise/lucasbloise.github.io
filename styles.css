@@ -57,6 +57,7 @@ body {
     justify-content: space-between;
     align-items: baseline;
     flex-direction: row;
+    position: relative;
 }
 
 
@@ -194,6 +195,18 @@ footer {
     margin-top: 2rem;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.cart-count {
+    background-color: #f5b32f;
+    height: 1.5rem;
+    width: 1.5rem;
+    text-align: center;
+
+    border-radius: 15px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
 }
 
 
