@@ -111,6 +111,7 @@ body {
 
 
 
+
 @media screen and (max-width: 600px) {
 
     /* Estilos para pantallas con un ancho máximo de 600px */
@@ -125,6 +126,16 @@ body {
 
     .section-title-text {
         font-size: 26px;
+    }
+
+    .form-and-detail-container {
+        flex-direction: column;
+    }
+
+    .order-container {
+        margin-top: 2rem;
+        align-self: center;
+        width: 80%;
     }
 
 }

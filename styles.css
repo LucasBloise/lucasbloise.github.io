@@ -209,6 +209,24 @@ footer {
     right: -10px;
 }
 
+.product-card-decrement-button {
+    width: 20px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: white;
+    margin-right: 10px;
+    text-align: center;
+}
+
+
+.product-card-increment-button {
+    text-align: center;
+    width: 20px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: white;
+    margin-left: 10px;
+}
 
 
 @media (min-width: 1200px) {
