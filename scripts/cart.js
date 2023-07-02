@@ -12,6 +12,7 @@ window.onload = function() {
 
 
 function addElementToCartContainer(cartContent){
+   
     const orderContainer = document.querySelector('.order-container');
 
     const productsContainer = document.createElement('div');

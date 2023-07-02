@@ -13,48 +13,56 @@ document.addEventListener('DOMContentLoaded', function() {
         ualaAccessToken = response.data['access_token']
       })
       .catch(function (error) {
-        console.log(error);
+    
       });
-
-
-      const urlCheckOut = 'https://checkout.stage.ua.la/1/checkout';
-      const description = "Compra Super Mascotas";
-      const userName = "new_user_1631906477";
-      const callback_fail = "http://127.0.0.1:5500/index.html";
-      const callback_success = "http://127.0.0.1:5500/index.html";
-      const notification_url = "https://www.notificationurl.com";
-    
+ 
       const checkOutButton = document.getElementById('checkOutButton');
+
       checkOutButton.addEventListener('click', function() {
-        const amount = calculateTotalNumberPrice();
+        event.preventDefault();
+        const form = document.querySelector('.payment-form');
+        if (form.checkValidity()) {
+            ualaApiCheckOut();
+        } else {
+            alert('Por favor, completa todos los campos antes de enviar el formulario.');
+        }
     
-        const data = {
-          "amount": `${amount}`,
-          "description": description,
-          "userName": userName,
-          "callback_fail": callback_fail,
-          "callback_success": callback_success,
-          "notification_url": notification_url
-        };
-        console.table(ualaAccessToken);
-        console.table(data);
-        axios.post(urlCheckOut, data, {
-          headers: {
-            "Authorization": `Bearer ${ualaAccessToken}`
-          }
-        })
-          .then(function(response) {
-            if (response.data && response.data.links && response.data.links.checkoutLink) {
-                const checkoutLink = response.data.links.checkoutLink;
-                window.open(checkoutLink, '_blank');
-              }
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
       });
   });
   
+
+function ualaApiCheckOut() {
+    const urlCheckOut = 'https://checkout.stage.ua.la/1/checkout';
+    const description = "Compra Super Mascotas";
+    const userName = "new_user_1631906477";
+    const callback_fail = "http://127.0.0.1:5500/index.html";
+    const callback_success = "http://127.0.0.1:5500/index.html";
+    const notification_url = "https://www.notificationurl.com";
+    const amount = calculateTotalNumberPrice();
+
+    const data = {
+        "amount": `${amount}`,
+        "description": description,
+        "userName": userName,
+        "callback_fail": callback_fail,
+        "callback_success": callback_success,
+        "notification_url": notification_url
+    };
+    axios.post(urlCheckOut, data, {
+        headers: {
+            "Authorization": `Bearer ${ualaAccessToken}`
+        }
+    })
+        .then(function (response) {
+            if (response.data && response.data.links && response.data.links.checkoutLink) {
+                const checkoutLink = response.data.links.checkoutLink;
+                window.open(checkoutLink, '_blank');
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
   function calculateTotalNumberPrice(){
     let totalprice = 0;
