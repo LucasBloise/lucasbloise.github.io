@@ -10,6 +10,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
+button {
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
 .content-container {
     display: flex;
     flex-direction: column;
@@ -137,6 +143,10 @@ body {
         align-self: center;
         width: 80%;
     }
+
+
+
+
 
 }
 
