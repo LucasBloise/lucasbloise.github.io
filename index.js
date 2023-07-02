@@ -186,3 +186,4 @@ gridContainer.appendChild(productCard);
     return totalProductsInCart;
   };
 
+

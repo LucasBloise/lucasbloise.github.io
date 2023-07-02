@@ -53,22 +53,3 @@ function calculateTotalPrice(){
     return  `Total $ ${totalprice}`
 }
 
-//gridContainer.appendChild(productCard);
-
-
-//   <div class="order-container">
-//   <div class="products-container">
-//       <div class="product">
-//           <div class="item">2X Alimento de Perro</div>
-//           <div class="price">$ 10500</div>
-//       </div>
-//       <div class="product">
-//           <div class="item">1 Juguete de Gato</div>
-//           <div class="price">$ 10500</div>
-//       </div>
-//   </div>
-
-
-//   <div class="price-total">Total $ 21000</div>
-// </div>
-  
