@@ -139,6 +139,7 @@ function mapProductsToGrid(productsList) {
         decrementButton.style.display = 'none';
 
       }
+      cartContent = cartContent.filter(e => e.currentAmountInCart >= 1)
       cartCountText.textContent = calculateProductsInCart();
       sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
 

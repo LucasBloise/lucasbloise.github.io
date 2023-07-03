@@ -76,6 +76,7 @@ function addElementToCartContainer(cartContent) {
         decrementAmount.textContent = "-"
         decrementAmount.addEventListener("click", function () {
             cartProduct.currentAmountInCart--
+            cartContent = cartContent.filter(e => e.currentAmountInCart >= 1)
             sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
             totalprice.textContent = `Total $ ${calculateTotalPrice()}`
 
