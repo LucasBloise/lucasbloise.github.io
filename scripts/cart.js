@@ -2,11 +2,7 @@ let cartContent = [];
 let shipPrice = 0
 window.onload = function () {
     // Aquí puedes colocar el código para imprimir algo en la página
-    let cartContentCoded = sessionStorage.getItem("cart_content");
-    let cartContentArray = JSON.parse(cartContentCoded)
-    for (const product of cartContentArray) {
-        cartContent.push(Product.fromStorage(product))
-    }
+    getCartContent();
     addElementToCartContainer(cartContent);
 
     var inputDireccion = document.getElementById("input-direccion");
@@ -43,6 +39,13 @@ window.onload = function () {
     });
 };
 
+function getCartContent() {
+    let cartContentCoded = sessionStorage.getItem("cart_content");
+    let cartContentArray = JSON.parse(cartContentCoded);
+    for (const product of cartContentArray) {
+        cartContent.push(Product.fromStorage(product));
+    }
+}
 
 function addElementToCartContainer(cartContent) {
 
@@ -56,14 +59,37 @@ function addElementToCartContainer(cartContent) {
         const product = document.createElement('div');
         product.classList.add('product');
 
+        const incrementAmount = document.createElement('button');
+        incrementAmount.textContent = "+"
+        incrementAmount.addEventListener("click", function () {
+            cartProduct.currentAmountInCart++
+
+            item.textContent = `${cartProduct.currentAmountInCart}X ${cartProduct.name}`
+            totalprice.textContent = `Total $ ${calculateTotalPrice()}`
+            sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
+        });
+
+        const decrementAmount = document.createElement('button');
+        decrementAmount.textContent = "-"
+        decrementAmount.addEventListener("click", function () {
+            cartProduct.currentAmountInCart--
+
+            item.textContent = `${cartProduct.currentAmountInCart}X ${cartProduct.name}`
+            totalprice.textContent = `Total $ ${calculateTotalPrice()}`
+            sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
+        });
+
+
         const item = document.createElement('div');
         item.classList.add('item');
+        item.setAttribute('id', cartProduct.name)
         item.textContent = `${cartProduct.currentAmountInCart}X ${cartProduct.name}`
 
         const price = document.createElement('div');
         price.classList.add('price');
         price.textContent = `$${cartProduct.price}`
-
+        product.appendChild(incrementAmount);
+        product.appendChild(decrementAmount);
         product.appendChild(item);
         product.appendChild(price);
         productsContainer.appendChild(product);
