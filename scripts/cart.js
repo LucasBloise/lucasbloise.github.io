@@ -1,6 +1,6 @@
 let cartContent = [];
-
-window.onload = function() {
+let shipPrice = 0
+window.onload = function () {
     // Aquí puedes colocar el código para imprimir algo en la página
     let cartContentCoded = sessionStorage.getItem("cart_content");
     let cartContentArray = JSON.parse(cartContentCoded)
@@ -8,25 +8,58 @@ window.onload = function() {
         cartContent.push(Product.fromStorage(product))
     }
     addElementToCartContainer(cartContent);
-  };
+
+    var inputDireccion = document.getElementById("input-direccion");
 
 
-function addElementToCartContainer(cartContent){
-   
+    inputDireccion.addEventListener("blur", function () {
+        axios.get(`http://localhost:3000/envio/${inputDireccion.values}`)
+            .then(response => {
+                shipPrice = response.data.costo_envio;
+                const productsContainer = document.querySelector('.products-container');
+
+                const product = document.createElement('div');
+                product.classList.add('product');
+
+                const item = document.createElement('div');
+                item.classList.add('item');
+                item.textContent = 'Costo de Envio'
+
+                const price = document.createElement('div');
+                price.classList.add('price');
+                price.textContent = `$${shipPrice}`
+
+                product.appendChild(item);
+                product.appendChild(price);
+                productsContainer.appendChild(product);
+
+                const priceTotal = document.querySelector('.price-total');
+                const totalPrice = calculateTotalPrice() + shipPrice
+                priceTotal.textContent = `Total $ ${totalPrice}`
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+};
+
+
+function addElementToCartContainer(cartContent) {
+
     const orderContainer = document.querySelector('.order-container');
 
     const productsContainer = document.createElement('div');
     productsContainer.classList.add('products-container');
 
-  
+
     for (const cartProduct of cartContent) {
         const product = document.createElement('div');
         product.classList.add('product');
-        
+
         const item = document.createElement('div');
         item.classList.add('item');
         item.textContent = `${cartProduct.currentAmountInCart}X ${cartProduct.name}`
-    
+
         const price = document.createElement('div');
         price.classList.add('price');
         price.textContent = `$${cartProduct.price}`
@@ -38,19 +71,18 @@ function addElementToCartContainer(cartContent){
 
     const totalprice = document.createElement('div');
     totalprice.classList.add('price-total');
-    totalprice.textContent = calculateTotalPrice();
+    totalprice.textContent = `Total $ ${calculateTotalPrice()}`
 
-    
+
     orderContainer.appendChild(productsContainer);
     orderContainer.appendChild(totalprice);
 }
 
-function calculateTotalPrice(){
+function calculateTotalPrice() {
     let totalprice = 0;
     for (const product of cartContent) {
         totalprice += product.price * product.currentAmountInCart
     }
-
-    return  `Total $ ${totalprice}`
+    return totalprice
 }
 

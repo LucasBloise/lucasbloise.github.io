@@ -33,12 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
-
-
-
-
-
-
 const incrementProductInCart = (product) => {
   cartContent.find((e) => e.name === product.name).currentAmountInCart++;
   updateCartContent();
