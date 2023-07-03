@@ -3,11 +3,6 @@ let slides = document.getElementsByClassName('slide');
 let currentSlide = 0;
 let productsList = []
 
-setInterval(function () {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add('active');
-}, 3000);
 
 
 
@@ -16,6 +11,12 @@ function changeSlide(n) {
   currentSlide = (currentSlide + n + slides.length) % slides.length;
   slides[currentSlide].classList.add('active');
 }
+
+setInterval(function () {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 2000);
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -29,21 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error:', error);
     });
 
-
-
-  $('.carousel').carousel({
-    interval: 3000
-  })
-  let prevButton = document.querySelector('.prev');
-  let nextButton = document.querySelector('.next');
-
-  prevButton.addEventListener('click', function () {
-    changeSlide(-1);
-  });
-
-  nextButton.addEventListener('click', function () {
-    changeSlide(1);
-  });
 })
 
 
