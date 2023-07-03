@@ -109,9 +109,24 @@ function mapProductsToGrid(productsList) {
     });
 
 
-    addToCartButton.style.display = 'inline-block';
-    incrementButton.style.display = 'none';
-    decrementButton.style.display = 'none';
+
+    if (sessionStorage.getItem("cart_content")) {
+      const productInCart = cartContent.find((e) => e.name === product.name)
+      if (!(productInCart && productInCart.currentAmountInCart >= 1)) {
+        addToCartButton.style.display = 'inline-block';
+        incrementButton.style.display = 'none';
+        decrementButton.style.display = 'none';
+      } else {
+        addToCartButton.style.display = 'none';
+        incrementButton.style.display = 'inline-block';
+        decrementButton.style.display = 'inline-block';
+      }
+    } else {
+      addToCartButton.style.display = 'inline-block';
+      incrementButton.style.display = 'none';
+      decrementButton.style.display = 'none';
+    }
+
 
 
     decrementButton.addEventListener("click", () => {
