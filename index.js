@@ -19,7 +19,16 @@ setInterval(function () {
 }, 2000);
 
 document.addEventListener('DOMContentLoaded', function () {
+  let cartContentCoded = sessionStorage.getItem("cart_content");
+  let cartContentArray = JSON.parse(cartContentCoded);
+  if (cartContentArray) {
+    for (const product of cartContentArray) {
+      cartContent.push(Product.fromStorage(product));
+    }
+  }
 
+  const cartCountText = document.getElementById('cart-count');
+  cartCountText.textContent = calculateProductsInCart();
   axios.get('http://localhost:3000/product')
     .then(response => {
       const products = response.data.products;
@@ -83,7 +92,28 @@ function mapProductsToGrid(productsList) {
     const cartCountText = document.getElementById('cart-count');
 
     addToCartButton.addEventListener("click", () => addProductToCart(product));
-    incrementButton.addEventListener("click", () => incrementProductInCart(product));
+    incrementButton.addEventListener("click", () => {
+      const productEntity = cartContent.find((e) => e.name === product.name);
+      productEntity.currentAmountInCart++;
+      if (productEntity.currentAmountInCart >= 0) {
+
+        addToCartButton.style.display = 'none';
+        incrementButton.style.display = 'inline-block';
+        decrementButton.style.display = 'inline-block';
+
+      }
+
+      cartCountText.textContent = calculateProductsInCart();
+      sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
+
+    });
+
+
+    addToCartButton.style.display = 'inline-block';
+    incrementButton.style.display = 'none';
+    decrementButton.style.display = 'none';
+
+
     decrementButton.addEventListener("click", () => {
       const productEntity = cartContent.find((e) => e.name === product.name);
       productEntity.currentAmountInCart--;
@@ -110,25 +140,22 @@ function mapProductsToGrid(productsList) {
     const addProductToCart = (product) => {
       const productsIds = cartContent.map((e) => e.name);
 
-      if (!productsIds.includes(product.name)) {
-        const productEntity = Product.fromJson(product);
-        productEntity.currentAmountInCart++;
-        cartContent.push(productEntity);
-      } else {
-        cartContent.find((e) => e.name === product.name).currentAmountInCart++;
-      }
+      addToCartButton.style.display = 'none';
+      incrementButton.style.display = 'inline-block';
+      decrementButton.style.display = 'inline-block';
+
+      const productEntity = Product.fromJson(product);
+      productEntity.currentAmountInCart++;
+      cartContent.push(productEntity);
+
       updateCartContent();
     };
 
-    const incrementProductInCart = (product) => {
-      cartContent.find((e) => e.name === product.name).currentAmountInCart++;
-      updateCartContent();
-    };
 
     const updateCartContent = () => {
       cartCountText.textContent = calculateProductsInCart();
       sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
-      toggleButtons();
+
     };
 
     const calculateProductsInCart = () => {
@@ -139,19 +166,8 @@ function mapProductsToGrid(productsList) {
       return totalProductsInCart;
     };
 
-    const toggleButtons = () => {
-      if (calculateProductsInCart() > 0) {
-        addToCartButton.style.display = 'none';
-        incrementButton.style.display = 'inline-block';
-        decrementButton.style.display = 'inline-block';
-      } else {
-        addToCartButton.style.display = 'inline-block';
-        incrementButton.style.display = 'none';
-        decrementButton.style.display = 'none';
-      }
-    };
 
-    toggleButtons(); // Agregar esta línea para mostrar/ocultar los botones inicialmente
+
 
     addToCartContainer.appendChild(addToCartButton);
     addToCartContainer.appendChild(decrementButton);

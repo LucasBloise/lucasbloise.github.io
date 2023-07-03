@@ -56,6 +56,9 @@ function addElementToCartContainer(cartContent) {
 
 
     for (const cartProduct of cartContent) {
+        if (cartProduct.currentAmountInCart <= 0) {
+            continue
+        }
         const product = document.createElement('div');
         product.classList.add('product');
 
@@ -73,10 +76,17 @@ function addElementToCartContainer(cartContent) {
         decrementAmount.textContent = "-"
         decrementAmount.addEventListener("click", function () {
             cartProduct.currentAmountInCart--
-
-            item.textContent = `${cartProduct.currentAmountInCart}X ${cartProduct.name}`
-            totalprice.textContent = `Total $ ${calculateTotalPrice()}`
             sessionStorage.setItem("cart_content", JSON.stringify(cartContent));
+            totalprice.textContent = `Total $ ${calculateTotalPrice()}`
+
+            if (cartProduct.currentAmountInCart == 0) {
+                product.style.display = "none"
+            } else {
+                item.textContent = `${cartProduct.currentAmountInCart}X ${cartProduct.name}`
+            }
+
+
+
         });
 
 
