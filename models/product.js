@@ -1,17 +1,17 @@
 class Product {
-    constructor(name,price,image) {
+    constructor(name,price,imagePath) {
         this.name = name,
         this.price = price,
-        this.image = image
+        this.imagePath = imagePath
         this.currentAmountInCart = 0
     }
 
     static fromJson(data){
-        return new Product(data.name,data.price,data.image);
+        return new Product(data.name,data.price,data.imagePath);
     }
 
     static fromStorage(data){
-        let product = new Product(data.name,data.price,data.image);
+        let product = new Product(data.name,data.price,data.imagePath);
         product.currentAmountInCart = data ['currentAmountInCart'];
         return product;
     }
