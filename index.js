@@ -17,6 +17,28 @@ function changeSlide(n) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  var searchInput = document.getElementById('floatingInputValue');
+    var productCards = document.getElementsByClassName('product-card');
+    var productNames = Array.from(productCards).map(function(card) {
+      return card.querySelector('.product-card-name').textContent.toLowerCase();
+    });
+
+    searchInput.addEventListener('input', function() {
+      var searchQuery = searchInput.value.toLowerCase();
+
+      for (var i = 0; i < productCards.length; i++) {
+        var productCard = productCards[i];
+        var productName = productNames[i];
+
+        if (productName.includes(searchQuery)) {
+          productCard.style.display = 'flex';
+        } else {
+          productCard.style.display = 'none';
+        }
+      }
+    });
+
     $('.carousel').carousel({
         interval: 3000
       })
