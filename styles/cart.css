@@ -112,6 +112,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 0.2rem;
 }
 
 .product-card-add-to-cart-container {
@@ -130,7 +131,16 @@ button {
     align-self: center;
 }
 
+.buttons-container {
+    display: flex;
+    gap: 0.5rem;
+}
 
+.increment-amount-button,
+.decrement-amount-button {
+    background-color: white;
+    border-radius: 5px;
+}
 
 
 

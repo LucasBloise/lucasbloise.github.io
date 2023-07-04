@@ -62,7 +62,11 @@ function addElementToCartContainer(cartContent) {
         const product = document.createElement('div');
         product.classList.add('product');
 
+        const buttonsContainer = document.createElement('button');
+        buttonsContainer.classList.add('buttons-container');
+
         const incrementAmount = document.createElement('button');
+        incrementAmount.classList.add('increment-amount-button');
         incrementAmount.textContent = "+"
         incrementAmount.addEventListener("click", function () {
             cartProduct.currentAmountInCart++
@@ -73,6 +77,7 @@ function addElementToCartContainer(cartContent) {
         });
 
         const decrementAmount = document.createElement('button');
+        decrementAmount.classList.add('decrement-amount-button');
         decrementAmount.textContent = "-"
         decrementAmount.addEventListener("click", function () {
             cartProduct.currentAmountInCart--
@@ -99,8 +104,9 @@ function addElementToCartContainer(cartContent) {
         const price = document.createElement('div');
         price.classList.add('price');
         price.textContent = `$${cartProduct.price}`
-        product.appendChild(incrementAmount);
-        product.appendChild(decrementAmount);
+        buttonsContainer.appendChild(incrementAmount);
+        buttonsContainer.appendChild(decrementAmount);
+        product.appendChild(buttonsContainer);;
         product.appendChild(item);
         product.appendChild(price);
         productsContainer.appendChild(product);
