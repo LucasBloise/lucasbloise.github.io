@@ -21,12 +21,16 @@ document.addEventListener('DOMContentLoaded', function () {
     checkOutButton.addEventListener('click', function () {
         event.preventDefault();
         const form = document.querySelector('.payment-form');
-        if (form.checkValidity()) {
-            ualaApiCheckOut();
+        cartContent = cartContent.filter(e => e.currentAmountInCart >= 1)
+        if (cartContent.length == 0) {
+            alert('Por favor, agrega productos al carrito para poder comprar.');
         } else {
-            alert('Por favor, completa todos los campos antes de enviar el formulario.');
+            if (form.checkValidity()) {
+                ualaApiCheckOut();
+            } else {
+                alert('Por favor, completa todos los campos antes de enviar el formulario.');
+            }
         }
-
     });
 });
 
