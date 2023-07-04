@@ -10,6 +10,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}
 
 header {
     padding: 0;
@@ -129,6 +134,7 @@ button {
 
 
 
+
 @media screen and (max-width: 600px) {
 
     /* Estilos para pantallas con un ancho máximo de 600px */
@@ -139,6 +145,10 @@ button {
 
     .section-title-line {
         width: 10%;
+    }
+
+    footer {
+        position: relative;
     }
 
     .section-title-text {
