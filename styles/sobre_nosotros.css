@@ -50,7 +50,7 @@ header {
 }
 
 .section-title-line {
-    width: 30%;
+    width: 40%;
     height: 10px;
     background: #F0AF2E
 }
@@ -135,6 +135,10 @@ header {
     .store-list-container {
         margin-left: 15rem;
         margin-right: 15rem;
+    }
+
+    .section-title-line {
+        width: 30%;
     }
 }
 
